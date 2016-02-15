@@ -7,8 +7,8 @@ function startTracking(){
 		document.getElementById('stopBtn').style.display='inline';
 
 
-		navigator.geolocation.getCurrentPosition(showPositio, showError);
-		//watchId=navigator.geolocation.watchPosition(showPositionUpdate, showError);
+		navigator.geolocation.getCurrentPosition(showPosition, showError);
+		watchId=navigator.geolocation.watchPosition(showPositionUpdate, showError);
 
 	} else{
 		alert('Geolocation not supported');
