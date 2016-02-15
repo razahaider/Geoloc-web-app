@@ -8,7 +8,7 @@ function startTracking(){
 
 
 		navigator.geolocation.getCurrentPosition(showPosition, showError);
-		watchId=navigator.geolocation.watchPosition(showPositionUpdate, showError);
+		watchId = navigator.geolocation.watchPosition(showPositionUpdate, showError);
 
 	} else{
 		alert('Geolocation not supported');
@@ -18,7 +18,7 @@ function startTracking(){
 
 
 function showPosition(position){
-	startPos=position;
+	startPos = position;
 	document.getElementById('startLat').innerHTML = startPos.coords.latitude;
 	document.getElementById('startLon').innerHTML = startPos.coords.longitude;
 }
@@ -27,7 +27,8 @@ function showPositionUpdate(position){
 
 	document.getElementById('currentLat').innerHTML = position.coords.latitude;
 	document.getElementById('currentLon').innerHTML = position.coords.longitude;
-	document.getElementById('distance').innerHTML = calculateDistance(startPos.coords.latitude, startPos.coords.longitude, position.coords.latitude, position.coords.longitude)
+	document.getElementById('distance').innerHTML = 
+	calculateDistance(startPos.coords.latitude, startPos.coords.longitude, position.coords.latitude, position.coords.longitude);
 }
 
 function showError(error){
@@ -51,19 +52,19 @@ function showError(error){
 /*---haversine--*/
 function calculateDistance(lat1, lon1, lat2, lon2){
 
-	var R=6371;
-	var dLat= (lat2-lat1).toRad();
-	var dLon=(lon2-lon1).toRad();
-	var a = Math.sin(dLat/2)*MAth.sin(dLat/2)+
-			Math.cos(lat1.toRad())*Math.cos(lat2.toRad())*
-			Math.sin(dLon/2)*Math.sin(dLon/2);
-	var c = 2*Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-	var d = R*c;
+	var R = 6371;
+	var dLat = (lat2-lat1).toRad();
+	var dLon = (lon2-lon1).toRad();
+	var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+			Math.cos(lat1.toRad()) * Math.cos(lat2.toRad()) *
+			Math.sin(dLon/2) * Math.sin(dLon/2);
+	var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+	var d = R * c;
 	return d;
 }
 
-Number.protype.toRad = function(){
-	return this*Math.PI/180;
+Number.prototype.toRad = function(){
+	return this * Math.PI / 180;
 }
 
 function stopTracking(){
