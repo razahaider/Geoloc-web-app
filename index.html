@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>DIstance Meter </title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="container">
+		<header>
+			<h1>Distance Connector</h1>
+		</header>
+		<p>
+			<strong> Starting Position</strong>
+			<br/>
+			<span id="startLat"> Getting Latitude+</span>
+			<span id="startLon"> Getting Longitude-</span>
+		</p>
+
+		<p>
+			<strong> Current Position</strong>
+			<br/>
+			<span id="startLat"> Getting Latitude+</span>
+			<span id="startLon"> Getting Longitude-</span>
+		</p>
+		<p>
+			<strong> Distance Travelled</strong>
+			<br/>
+			<span id="distance">[]</span> Kms
+		</p>
+
+		<p>
+			<button id="startBtn" onclick="startTracking()">Track</button>
+			<button id="stopBtn" onclick="stopTracking()"> Stop Tracking</button>
+
+		</p>
+		<footer>
+			<span> &copy; Copyright Haider-Raza </span>
+		</footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
